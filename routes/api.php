@@ -3,6 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\NoteController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -21,13 +23,13 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get('/ping',function(Request $request){
     return ['pong',true];
 });
-/*
-Route::get('/notes','');
 
+Route::get('/notes',[NoteController::class,'all']);
+/*
 Route::get('/note/{id}','');
 
 Route::post('/note','');
 Route::put('/note/{id}','');
-Route::delete('/note/{id}','');
+Route::delete('/note/{id}','') ;
 
 */
