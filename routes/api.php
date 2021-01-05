@@ -26,8 +26,8 @@ Route::get('/ping',function(Request $request){
 
 Route::get('/notes',[NoteController::class,'all']);
 Route::get('/note/{id}',[NoteController::class,'one']);
+Route::post('/note',[NoteController::class,'new']);
 /*
-Route::post('/note','');
 Route::put('/note/{id}','');
 Route::delete('/note/{id}','') ;
 

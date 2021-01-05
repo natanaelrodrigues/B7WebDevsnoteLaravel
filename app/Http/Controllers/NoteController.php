@@ -34,5 +34,29 @@ class NoteController extends Controller
 
         return $this->data;
     }
+
+    public function new(Request $request){
+        $title = $request->input('title');
+        $body = $request->input('body');
+
+        if($title && $body){
+
+            $note = new Note();
+            $note->title = $title;
+            $note->body = $body;
+            $note->save();
+
+            $this->data['result'] = [
+                'id' => $note->id,
+                'title' => $title,
+                'body' => $body
+            ];
+
+        }else {
+            $this->data['error'] = 'Campos não enviados';
+        }
+
+        return $this->data;
+    }
     
 }
