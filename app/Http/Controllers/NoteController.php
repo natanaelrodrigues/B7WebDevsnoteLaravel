@@ -86,5 +86,21 @@ class NoteController extends Controller
 
         return $this->data;
     }
+
+    public function delete($id){
+        if($id){
+            $note  = Note::find($id);
+
+            if($note) {
+                $note->delete();
+            } else {
+                $this->data['error'] = 'ID Inexistente.';    
+            }
+        } else {
+            $this->data['error'] = 'ID não enviado';
+        }
+
+        return $this->data;
+    }
     
 }
